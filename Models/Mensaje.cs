@@ -5,7 +5,7 @@ using PROYECTO_2.Estructuras;
 
 namespace PROYECTO_2.Models
 {
-    public class Mensaje
+    public class Mensaje : INombrable
     {
         public string Nombre { get; set; }
         public string NombreObj => Nombre;

@@ -3,7 +3,7 @@
 
 namespace PROYECTO_2.Models
 {
-    public class Dron
+    public class Dron : INombrable
     {
         public string Nombre { get; set; }
         public string NombreObj => Nombre;
