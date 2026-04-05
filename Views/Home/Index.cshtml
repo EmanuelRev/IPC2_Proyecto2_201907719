@@ -1,8 +1,63 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+// code paara paginaa princiapsll -----
+
+
+@{
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Sistema de Drones ING</h1>
+
+</div>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Cargar Archivo XML</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="CargarXML" asp-controller="Home" method="post" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label for="archivoXml" class="form-label">Seleccione el archivo de entrada:</label>
+                        <input type="file" name="archivoXml" id="archivoXml" class="form-control" accept=".xml" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Cargar y Procesar Simulación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Acciones del Sistema</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-3">
+                    <a asp-action="GenerarSalidaXML" asp-controller="Home" class="btn btn-success btn-lg">
+                        Generar Archivo de Salida (XML)
+                    </a>
+                    
+                    <a asp-action="Gestion" asp-controller="Home" class="btn btn-warning btn-lg">
+                        Ver Gestión y Listados (Drones, Sistemas, Mensajes)
+                    </a>
+
+                    <a asp-action="Inicializar" asp-controller="Home" class="btn btn-danger" onclick="return confirm('¿Estás seguro de borrar toda la memoria del sistema?');">
+                        Inicializar Sistema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

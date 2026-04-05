@@ -1,0 +1,91 @@
+// getion code xxxxx---
+
+@using PROYECTO_2.Utilidades
+@using PROYECTO_2.Estructuras
+@using PROYECTO_2.Models
+@{
+    ViewData["Title"] = "Gestión de Datos";
+}
+
+<h2 class="mb-4">Listados del Sistema (Ordenados Alfabéticamente)</h2>
+
+<div class="accordion" id="acordeonGestion">
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDrones">
+                Listado de Drones Globales (@DatosGlobales.DronesGlobales.Tamano)
+            </button>
+        </h2>
+        <div id="collapseDrones" class="accordion-collapse collapse show" data-bs-parent="#acordeonGestion">
+            <div class="accordion-body">
+                <ul class="list-group">
+                    @{
+                        Nodo<Dron> nodoDron = DatosGlobales.DronesGlobales.Primero;
+                        while (nodoDron != null)
+                        {
+                            <li class="list-group-item">Dron: <strong>@nodoDron.Valor.Nombre</strong></li>
+                            nodoDron = nodoDron.Siguiente;
+                        }
+                        if(DatosGlobales.DronesGlobales.Tamano == 0) { <p>No hay drones cargados.</p> }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSistemas">
+                Sistemas de Drones (@DatosGlobales.SistemasDeDrones.Tamano)
+            </button>
+        </h2>
+        <div id="collapseSistemas" class="accordion-collapse collapse" data-bs-parent="#acordeonGestion">
+            <div class="accordion-body">
+                <ul class="list-group">
+                    @{
+                        Nodo<SistemaDrones> nodoSist = DatosGlobales.SistemasDeDrones.Primero;
+                        while (nodoSist != null)
+                        {
+                            <li class="list-group-item">
+                                Sistema: <strong>@nodoSist.Valor.Nombre</strong> | 
+                                Altura Max: @nodoSist.Valor.AlturaMaxima | 
+                                Cant. Drones: @nodoSist.Valor.CantidadDrones
+                            </li>
+                            nodoSist = nodoSist.Siguiente;
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMensajes">
+                Mensajes y Resultados (@DatosGlobales.Mensajes.Tamano)
+            </button>
+        </h2>
+        <div id="collapseMensajes" class="accordion-collapse collapse" data-bs-parent="#acordeonGestion">
+            <div class="accordion-body">
+                <ul class="list-group">
+                    @{
+                        Nodo<ResultadoSimulacion> nodoRes = DatosGlobales.Resultados.Primero;
+                        while (nodoRes != null)
+                        {
+                            <li class="list-group-item">
+                                Mensaje: <strong>@nodoRes.Valor.NombreMensaje</strong> | 
+                                Sistema: @nodoRes.Valor.SistemaDrones | 
+                                <strong>Tiempo Óptimo: @nodoRes.Valor.TiempoOptimo s</strong> |
+                                <strong>Decodificado: @nodoRes.Valor.MensajeRecibido</strong>
+                            </li>
+                            nodoRes = nodoRes.Siguiente;
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-4">Volver al Inicio</a>

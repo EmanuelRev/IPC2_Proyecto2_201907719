@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\Proyecto_2.csproj",
+      "projectUniqueName": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\IPC2_Proyecto2_201907719\\Proyecto_2.csproj",
       "projectName": "Proyecto_2",
-      "projectPath": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\Proyecto_2.csproj",
+      "projectPath": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\IPC2_Proyecto2_201907719\\Proyecto_2.csproj",
       "packagesPath": "C:\\Users\\Emanuel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\obj\\",
+      "outputPath": "C:\\Users\\Emanuel\\Desktop\\Proyecto_2\\IPC2_Proyecto2_201907719\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Emanuel\\AppData\\Roaming\\NuGet\\NuGet.Config"
