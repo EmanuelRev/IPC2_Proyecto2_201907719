@@ -1,0 +1,6 @@
+digraph G {
+  node [shape=box, style=filled, fillcolor=lightblue, fontname="Arial"];
+  rankdir=TB;
+  Titulo [label="Sistemas de Drones", shape=plaintext, fillcolor=white, fontsize=18];
+  SistemaSecundario [label="Sistema: SistemaSecundario\nAltura Max: 5\nCant. Drones: 2"];
+}

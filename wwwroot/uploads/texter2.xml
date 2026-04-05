@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <listaDrones>
+    <!-- Trampa: DronX ya existe, el sistema lo debe ignorar -->
+    <dron>DronX</dron>
+    <!-- Nuevos drones que se deben sumar a la lista global -->
+    <dron>DronAlfa</dron>
+    <dron>DronBeta</dron>
+  </listaDrones>
+
+  <listaSistemasDrones>
+    <sistemaDrones nombre="SistemaSecundario">
+      <alturaMaxima>5</alturaMaxima>
+      <cantidadDrones>2</cantidadDrones>
+      <contenido>
+        <dron>DronAlfa</dron>
+        <alturas>
+          <altura valor="1">H</altura>
+          <altura valor="2">O</altura>
+          <altura valor="3">L</altura>
+          <altura valor="4">A</altura>
+          <altura valor="5">1</altura>
+        </alturas>
+
+        <dron>DronBeta</dron>
+        <alturas>
+          <altura valor="1">2</altura>
+          <altura valor="2">M</altura>
+          <altura valor="3">U</altura>
+          <altura valor="4">N</altura>
+          <altura valor="5">D</altura>
+        </alturas>
+      </contenido>
+    </sistemaDrones>
+  </listaSistemasDrones>
+
+  <listaMensajes>
+    <Mensaje nombre="MensajeIncremental">
+      <sistemaDrones>SistemaSecundario</sistemaDrones>
+      <instrucciones>
+        <instruccion dron="DronAlfa">1</instruccion> 
+        <instruccion dron="DronAlfa">2</instruccion> 
+        <instruccion dron="DronAlfa">3</instruccion> 
+        <instruccion dron="DronAlfa">4</instruccion> 
+      </instrucciones>
+    </Mensaje>
+  </listaMensajes>
+</config>

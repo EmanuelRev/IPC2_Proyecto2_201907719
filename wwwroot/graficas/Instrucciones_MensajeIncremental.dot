@@ -1,0 +1,20 @@
+digraph G {
+  node [shape=record, style=filled, fillcolor=lightyellow, fontname="Arial"];
+  rankdir=LR;
+  Titulo [label="Mensaje: MensajeIncremental\nRespuesta: HOLA\nTiempo: 8s", shape=plaintext, fillcolor=white, fontsize=16];
+  t1 [label="{ Segundo 1 | DronAlfa: Subir }"];
+  t1 -> t2;
+  t2 [label="{ Segundo 2 | DronAlfa: Emitir luz }"];
+  t2 -> t3;
+  t3 [label="{ Segundo 3 | DronAlfa: Subir }"];
+  t3 -> t4;
+  t4 [label="{ Segundo 4 | DronAlfa: Emitir luz }"];
+  t4 -> t5;
+  t5 [label="{ Segundo 5 | DronAlfa: Subir }"];
+  t5 -> t6;
+  t6 [label="{ Segundo 6 | DronAlfa: Emitir luz }"];
+  t6 -> t7;
+  t7 [label="{ Segundo 7 | DronAlfa: Subir }"];
+  t7 -> t8;
+  t8 [label="{ Segundo 8 | DronAlfa: Emitir luz }"];
+}

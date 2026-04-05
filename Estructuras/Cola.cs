@@ -1,4 +1,3 @@
-
 //cola FIFO xxxxxxx
 
 namespace PROYECTO_2.Estructuras
@@ -55,6 +54,18 @@ namespace PROYECTO_2.Estructuras
         public bool EstaVacia()
         {
             return Primero == null;
+        }
+
+        public Cola<T> Copiar()
+        {
+            Cola<T> nuevaCola = new Cola<T>();
+            Nodo<T> actual = Primero;
+            while (actual != null)
+            {
+                nuevaCola.Encolar(actual.Valor);
+                actual = actual.Siguiente;
+            }
+            return nuevaCola;
         }
     }
 }
