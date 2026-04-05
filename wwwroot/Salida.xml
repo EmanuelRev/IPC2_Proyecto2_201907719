@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<respuesta>
+  <listaMensajes>
+    <mensaje nombre="MensajeIncremental">
+      <sistemaDrones>SistemaSecundario</sistemaDrones>
+      <tiempoOptimo>8</tiempoOptimo>
+      <mensajeRecibido>HOLA</mensajeRecibido>
+      <instrucciones>
+        <tiempo valor="1">
+          <acciones>
+            <dron nombre="DronAlfa">Subir</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="2">
+          <acciones>
+            <dron nombre="DronAlfa">Emitir luz</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="3">
+          <acciones>
+            <dron nombre="DronAlfa">Subir</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="4">
+          <acciones>
+            <dron nombre="DronAlfa">Emitir luz</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="5">
+          <acciones>
+            <dron nombre="DronAlfa">Subir</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="6">
+          <acciones>
+            <dron nombre="DronAlfa">Emitir luz</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="7">
+          <acciones>
+            <dron nombre="DronAlfa">Subir</dron>
+          </acciones>
+        </tiempo>
+        <tiempo valor="8">
+          <acciones>
+            <dron nombre="DronAlfa">Emitir luz</dron>
+          </acciones>
+        </tiempo>
+      </instrucciones>
+    </mensaje>
+  </listaMensajes>
+</respuesta>

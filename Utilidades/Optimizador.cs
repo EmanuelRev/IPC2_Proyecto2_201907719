@@ -12,15 +12,16 @@ namespace PROYECTO_2.Utilidades
             resultado.SistemaDrones = mensaje.SistemaDrones;
             resultado.MensajeRecibido = ""; 
 
-            ListaEnlazada<DronEstado> estadosDrones = ObtenerDronesDelMensaje(mensaje.Instrucciones);
+            Cola<Instruccion> colaTemporal = mensaje.Instrucciones.Copiar();
+            ListaEnlazada<DronEstado> estadosDrones = ObtenerDronesDelMensaje(colaTemporal);
             
             int tiempoActual = 1;
 
-            while (!mensaje.Instrucciones.EstaVacia())
+            while (!colaTemporal.EstaVacia())
             {
                 PasoTiempo pasoActual = new PasoTiempo(tiempoActual);
                 
-                Instruccion instruccionTurno = mensaje.Instrucciones.Primero.Valor;
+                Instruccion instruccionTurno = colaTemporal.Primero.Valor;
                 bool luzEmitidaEnEsteSegundo = false;
 
                 Nodo<DronEstado> nodoEstado = estadosDrones.Primero;
@@ -30,13 +31,12 @@ namespace PROYECTO_2.Utilidades
                     DronEstado dron = nodoEstado.Valor;
                     string accionDron = "Esperar";
 
-                    if (dron.Nombre == instruccionTurno.NombreDron && !luzEmitidaEnEsteSegundo)
+                    if (dron.Nombre.Trim().Equals(instruccionTurno.NombreDron.Trim(), System.StringComparison.OrdinalIgnoreCase) && !luzEmitidaEnEsteSegundo)
                     {
                         if (dron.AlturaActual == instruccionTurno.Altura)
                         {
                             accionDron = "Emitir luz";
                             luzEmitidaEnEsteSegundo = true; 
-                            
                             
                             string letraDescubierta = ObtenerLetra(listaSistemas, mensaje.SistemaDrones, dron.Nombre, dron.AlturaActual);
                             resultado.MensajeRecibido += letraDescubierta;
@@ -54,7 +54,7 @@ namespace PROYECTO_2.Utilidades
                     }
                     else
                     {
-                        int alturaFutura = ObtenerAlturaFutura(mensaje.Instrucciones, dron.Nombre);
+                        int alturaFutura = ObtenerAlturaFutura(colaTemporal, dron.Nombre);
 
                         if (alturaFutura != -1) 
                         {
@@ -79,7 +79,7 @@ namespace PROYECTO_2.Utilidades
 
                 if (luzEmitidaEnEsteSegundo)
                 {
-                    mensaje.Instrucciones.Desencolar();
+                    colaTemporal.Desencolar();
                 }
 
                 tiempoActual++;
@@ -110,7 +110,7 @@ namespace PROYECTO_2.Utilidades
             Nodo<DronEstado> actual = lista.Primero;
             while (actual != null)
             {
-                if (actual.Valor.Nombre == nombre) return true;
+                if (actual.Valor.Nombre.Trim().Equals(nombre.Trim(), System.StringComparison.OrdinalIgnoreCase)) return true;
                 actual = actual.Siguiente;
             }
             return false;
@@ -121,7 +121,7 @@ namespace PROYECTO_2.Utilidades
             Nodo<Instruccion> actual = cola.Primero;
             while (actual != null)
             {
-                if (actual.Valor.NombreDron == nombreDron)
+                if (actual.Valor.NombreDron.Trim().Equals(nombreDron.Trim(), System.StringComparison.OrdinalIgnoreCase))
                 {
                     return actual.Valor.Altura;
                 }
@@ -130,7 +130,6 @@ namespace PROYECTO_2.Utilidades
             return -1; 
         }
 
-        
         private string ObtenerLetra(ListaEnlazada<SistemaDrones> listaSistemas, string nombreSistema, string nombreDron, int altura)
         {
             Nodo<SistemaDrones> nodoSist = listaSistemas.Primero;
@@ -141,7 +140,7 @@ namespace PROYECTO_2.Utilidades
                     Nodo<LetraDron> nodoLetra = nodoSist.Valor.ContenidoLetras.Primero;
                     while (nodoLetra != null)
                     {
-                        if (nodoLetra.Valor.NombreDron == nombreDron && nodoLetra.Valor.Altura == altura)
+                        if (nodoLetra.Valor.NombreDron.Trim().Equals(nombreDron.Trim(), System.StringComparison.OrdinalIgnoreCase) && nodoLetra.Valor.Altura == altura)
                         {
                             return nodoLetra.Valor.Letra;
                         }

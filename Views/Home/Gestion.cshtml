@@ -1,4 +1,4 @@
-// getion code xxxxx---
+// interfaz code para usu----
 
 @using PROYECTO_2.Utilidades
 @using PROYECTO_2.Estructuras
@@ -19,6 +19,29 @@
         </h2>
         <div id="collapseDrones" class="accordion-collapse collapse show" data-bs-parent="#acordeonGestion">
             <div class="accordion-body">
+                
+                @if (TempData["Mensaje"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["Mensaje"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["Error"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <div class="card card-body bg-light mb-3">
+                    <form asp-action="AgregarDron" asp-controller="Home" method="post" class="d-flex">
+                        <input type="text" name="nombreDron" class="form-control me-2" placeholder="Escriba el nombre del nuevo dron (Ej. DronA)" required />
+                        <button type="submit" class="btn btn-primary">Agregar Dron</button>
+                    </form>
+                </div>
+
                 <ul class="list-group">
                     @{
                         Nodo<Dron> nodoDron = DatosGlobales.DronesGlobales.Primero;
@@ -42,6 +65,13 @@
         </h2>
         <div id="collapseSistemas" class="accordion-collapse collapse" data-bs-parent="#acordeonGestion">
             <div class="accordion-body">
+                
+                <div class="mb-3">
+                    <a asp-action="GraficarSistema" asp-controller="Home" target="_blank" class="btn btn-info text-white">
+                        Ver Gráfica del Listado de Sistemas
+                    </a>
+                </div>
+
                 <ul class="list-group">
                     @{
                         Nodo<SistemaDrones> nodoSist = DatosGlobales.SistemasDeDrones.Primero;
@@ -74,10 +104,53 @@
                         while (nodoRes != null)
                         {
                             <li class="list-group-item">
-                                Mensaje: <strong>@nodoRes.Valor.NombreMensaje</strong> | 
-                                Sistema: @nodoRes.Valor.SistemaDrones | 
-                                <strong>Tiempo Óptimo: @nodoRes.Valor.TiempoOptimo s</strong> |
-                                <strong>Decodificado: @nodoRes.Valor.MensajeRecibido</strong>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        Mensaje: <strong>@nodoRes.Valor.NombreMensaje</strong> | 
+                                        Sistema: @nodoRes.Valor.SistemaDrones | 
+                                        <strong>Tiempo: @nodoRes.Valor.TiempoOptimo s</strong> |
+                                        <strong>Respuesta: @nodoRes.Valor.MensajeRecibido</strong>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detalle-@nodoRes.Valor.NombreMensaje.Replace(" ", "-")">
+                                            Ver Detalle de Pasos
+                                        </button>
+                                        <a asp-action="GraficarMensaje" asp-controller="Home" asp-route-nombreMensaje="@nodoRes.Valor.NombreMensaje" target="_blank" class="btn btn-sm btn-success text-white">
+                                            Ver Graphviz
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="collapse mt-3" id="detalle-@nodoRes.Valor.NombreMensaje.Replace(" ", "-")">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Segundo</th>
+                                                <th>Dron</th>
+                                                <th>Acción Realizada</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                Nodo<PasoTiempo> nodoPaso = nodoRes.Valor.Pasos.Primero;
+                                                while (nodoPaso != null)
+                                                {
+                                                    Nodo<Accion> nodoAccion = nodoPaso.Valor.Acciones.Primero;
+                                                    while (nodoAccion != null)
+                                                    {
+                                                        <tr>
+                                                            <td>@nodoPaso.Valor.Segundo</td>
+                                                            <td>@nodoAccion.Valor.NombreDron</td>
+                                                            <td>@nodoAccion.Valor.Movimiento</td>
+                                                        </tr>
+                                                        nodoAccion = nodoAccion.Siguiente;
+                                                    }
+                                                    nodoPaso = nodoPaso.Siguiente;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </li>
                             nodoRes = nodoRes.Siguiente;
                         }

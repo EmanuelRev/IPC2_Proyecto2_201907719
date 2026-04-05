@@ -50,12 +50,15 @@
                     </a>
                     
                     <a asp-action="Gestion" asp-controller="Home" class="btn btn-warning btn-lg">
-                        Ver Gestión y Listados (Drones, Sistemas, Mensajes)
+                        Gestionar Sistema
                     </a>
 
                     <a asp-action="Inicializar" asp-controller="Home" class="btn btn-danger" onclick="return confirm('¿Estás seguro de borrar toda la memoria del sistema?');">
-                        Inicializar Sistema
+                        Reiniciar Sistema
                     </a>
+                    <a asp-action="Ayuda" asp-controller="Home" class="btn btn-info btn-lg m-2">
+                        Ayuda
+                   </a>
                 </div>
             </div>
         </div>
