@@ -196,4 +196,5 @@ C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\r
 C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\8vtyle21aw-{0}-poov7pz4kb-poov7pz4kb.gz
 C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\7s51pxhf6d-{0}-pon28g7zc3-pon28g7zc3.gz
 C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\9odxie03yh-{0}-zy7uhuq6d5-zy7uhuq6d5.gz
-C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\14lxnil1kn-{0}-2m5qlw92wn-2m5qlw92wn.gz
+C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\irhfb3zjev-{0}-43f7480p3l-43f7480p3l.gz
+C:\Users\Emanuel\Desktop\Proyecto_2\IPC2_Proyecto2_201907719\obj\Debug\net10.0\compressed\14lxnil1kn-{0}-zbauzsd6vb-zbauzsd6vb.gz

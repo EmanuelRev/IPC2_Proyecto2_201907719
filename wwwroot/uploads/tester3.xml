@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <config>
   <listaDrones>
     <dron>DronAlfa</dron>
     <dron>DronBeta</dron>
   </listaDrones>
-
+  
   <listaSistemasDrones>
     <sistemaDrones nombre="SistemaParalelo">
       <alturaMaxima>10</alturaMaxima>
@@ -14,8 +13,7 @@
         <alturas>
           <altura valor="2">O</altura>
         </alturas>
-      </contenido>
-      <contenido>
+        
         <dron>DronBeta</dron>
         <alturas>
           <altura valor="3">K</altura>
@@ -23,13 +21,13 @@
       </contenido>
     </sistemaDrones>
   </listaSistemasDrones>
-
+  
   <listaMensajes>
     <Mensaje nombre="MensajePruebaOK">
       <sistemaDrones>SistemaParalelo</sistemaDrones>
       <instrucciones>
-        <instruccion dron="DronAlfa">2</instruccion> 
-        <instruccion dron="DronBeta">3</instruccion> 
+        <instruccion dron="DronAlfa">2</instruccion>
+        <instruccion dron="DronBeta">3</instruccion>
       </instrucciones>
     </Mensaje>
   </listaMensajes>

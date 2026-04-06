@@ -1,0 +1,18 @@
+digraph G {
+  node [shape=record, style=filled, fillcolor=lightyellow, fontname="Arial"];
+  rankdir=LR;
+  Titulo [label="Mensaje: Mensaje1\nRespuesta: I\nTiempo: 7s", shape=plaintext, fillcolor=white, fontsize=16];
+  t1 [label="{ Segundo 1 | DronX: Subir | DronY: Subir | DronZ: Subir }"];
+  t1 -> t2;
+  t2 [label="{ Segundo 2 | DronX: Subir | DronY: Subir | DronZ: Subir }"];
+  t2 -> t3;
+  t3 [label="{ Segundo 3 | DronX: Emitir luz | DronY: Subir | DronZ: Esperar }"];
+  t3 -> t4;
+  t4 [label="{ Segundo 4 | DronX: Esperar | DronY: Emitir luz | DronZ: Esperar }"];
+  t4 -> t5;
+  t5 [label="{ Segundo 5 | DronX: Esperar | DronY: Bajar | DronZ: Emitir luz }"];
+  t5 -> t6;
+  t6 [label="{ Segundo 6 | DronX: Esperar | DronY: Bajar | DronZ: Esperar }"];
+  t6 -> t7;
+  t7 [label="{ Segundo 7 | DronX: Esperar | DronY: Emitir luz | DronZ: Esperar }"];
+}

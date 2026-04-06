@@ -13,7 +13,6 @@ namespace PROYECTO_2.Models
         public int CantidadDrones { get; set; }
         public ListaEnlazada<Dron> Drones { get; set; }
         
-        
         public ListaEnlazada<LetraDron> ContenidoLetras { get; set; }
 
         public SistemaDrones(string nombre, int alturaMaxima, int cantidadDrones)
